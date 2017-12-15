@@ -1,10 +1,10 @@
 #!/bin/bash
 DIR=${PWD}
 BASEDIR=$(dirname $0)
-SUBJECT="Fag"
-TITLE="Titel"
-GROUP="Dmitry Serykh"
-NAMES=""
+SUBJECT="Subject Name"
+TITLE="Title"
+GROUP="Group Name"
+NAMES="Names"
 
 while getopts ":s:n:t:g:d:" opt; do
   case $opt in
