@@ -48,15 +48,15 @@ echo '\documentclass[a4paper,article]{memoir}
 \ULCornerWallPaper{1}{natbio-farve-grid-full.pdf}
 \ULCornerWallPaper{1}{diku-en.pdf}
 \begin{adjustwidth}{-3cm}{-1.5cm}
-\vspace*{1cm}' >forside.tex
+\vspace*{1cm}' >frontpage.tex
 
-echo "\textbf{\Huge $SUBJECT }\\\ " >>forside.tex
-echo '\vspace*{2.5cm} \\ ' >>forside.tex
-echo "\textbf{\Huge $TITLE } \\\ " >>forside.tex
-echo '\vspace*{.1cm} \\ ' >>forside.tex
-echo "{\huge $GROUP } \\\ " >>forside.tex
-echo '\begin{tabbing}' >>forside.tex
-echo "$NAMES ~~ \= " >>forside.tex
+echo "\textbf{\Huge $SUBJECT }\\\ " >>frontpage.tex
+echo '\vspace*{2.5cm} \\ ' >>frontpage.tex
+echo "\textbf{\Huge $TITLE } \\\ " >>frontpage.tex
+echo '\vspace*{.1cm} \\ ' >>frontpage.tex
+echo "{\huge $GROUP } \\\ " >>frontpage.tex
+echo '\begin{tabbing}' >>frontpage.tex
+echo "$NAMES ~~ \= " >>frontpage.tex
 
 echo '\\[12.6cm]
 \textbf{\Large } \\
@@ -64,11 +64,13 @@ echo '\\[12.6cm]
 \end{tabbing}
 \end{adjustwidth}
 \ClearWallPaper
-\end{document}' >> forside.tex
+\end{document}' >> frontpage.tex
 
-pdflatex forside.tex
-rm forside.tex
-rm forside.aux
-rm forside.log
-mv ./forside.pdf "${DIR}"/forside.pdf
+pdflatex frontpage.tex
+rm frontpage.tex
+rm frontpage.aux
+rm frontpage.log
+if [ "$DIR" = "$BASEDIR" ]; then
+    mv ./frontpage.pdf "${DIR}"/frontpage.pdf
+fi
 cd ${DIR}
